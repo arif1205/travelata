@@ -47,13 +47,13 @@ const NavBar = () => {
 										<span>{user.name}</span>
 									</li>
 									<li>
-										<a href='#'>Manage all</a>
+										<Link to='/mybooking'>My Booking</Link>
 									</li>
 									<li>
-										<a href='#'>Add a new services</a>
+										<Link to='/allbooking'>Manage all Booking</Link>
 									</li>
 									<li>
-										<a href='#'>Edit or Delete</a>
+										<Link to='/addnew'>Add a new Booking Service</Link>
 									</li>
 									<li>
 										<button onClick={logout}>Logout</button>

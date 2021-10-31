@@ -30,6 +30,13 @@ export const Grid = styled.div`
 			border-radius: 15px;
 			padding: 30px 20px;
 
+			.des {
+				color: #333;
+				font-size: 16px;
+				padding: 12px 0;
+				display: none;
+			}
+
 			h1 {
 				color: var(--primary-color);
 				font-size: 28px;
@@ -59,6 +66,10 @@ export const Grid = styled.div`
 					}
 				}
 			}
+		}
+
+		&:hover div.content .des {
+			display: block;
 		}
 	}
 `;

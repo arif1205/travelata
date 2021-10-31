@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // components
 import SectionHeader from "../../../Components/SectionHeader";
 // styled
@@ -31,8 +32,11 @@ const Offers = () => {
 							<div className='content'>
 								<h1>{offer.place}</h1>
 								<hr />
+								<div className='des'>{offer.details}</div>
 								<div className='d-flex justify-content-between flex-wrap content-bottom'>
-									<button>Book Now</button>
+									<Link to={`/services/${offer.id}`}>
+										<button>Book Now</button>
+									</Link>
 									<div className='price align-self-center'>
 										<span>From</span>
 										<span>${offer.price}</span>
