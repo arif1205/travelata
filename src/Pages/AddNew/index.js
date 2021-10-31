@@ -26,7 +26,7 @@ const AddNew = () => {
 			img: imgRef.current.value,
 		};
 
-		fetch("http://localhost:5000/services", {
+		fetch("https://dreadful-asylum-85968.herokuapp.com/services", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",

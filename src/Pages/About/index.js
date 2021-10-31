@@ -9,7 +9,7 @@ const About = () => {
 	const [teams, setTeams] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/teams")
+		fetch("https://dreadful-asylum-85968.herokuapp.com/teams")
 			.then((res) => res.json())
 			.then((data) => setTeams(data));
 	}, []);

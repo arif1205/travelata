@@ -7,7 +7,7 @@ const AllBooking = () => {
 	const [allorders, setAllorders] = useState([]);
 
 	useEffect(() => {
-		fetch("http://localhost:5000/orders")
+		fetch("https://dreadful-asylum-85968.herokuapp.com/orders")
 			.then((res) => res.json())
 			.then((data) =>
 				Array.isArray(data) ? setAllorders(data) : setAllorders([data])
@@ -17,7 +17,7 @@ const AllBooking = () => {
 	const handleDelete = (id) => {
 		const shouldDelete = window.confirm("Are you sure want to delete?");
 		if (shouldDelete) {
-			fetch(`http://localhost:5000/orders/${id}`, {
+			fetch(`https://dreadful-asylum-85968.herokuapp.com/orders/${id}`, {
 				method: "DELETE",
 			})
 				.then((res) => res.json())
@@ -35,7 +35,7 @@ const AllBooking = () => {
 		const updatedBook = allorders.find((order) => order._id === id);
 		updatedBook.status = true;
 
-		fetch(`http://localhost:5000/orders/${id}`, {
+		fetch(`https://dreadful-asylum-85968.herokuapp.com/orders/${id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",

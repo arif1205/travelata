@@ -8,7 +8,7 @@ const MyBooking = () => {
 	const { user } = useAuth();
 
 	useEffect(() => {
-		fetch("http://localhost:5000/orders")
+		fetch("https://dreadful-asylum-85968.herokuapp.com/orders")
 			.then((res) => res.json())
 			.then((data) =>
 				Array.isArray(data)
@@ -20,7 +20,7 @@ const MyBooking = () => {
 	const handleDelete = (id) => {
 		const shouldDelete = window.confirm("Are you sure want to delete?");
 		if (shouldDelete) {
-			fetch(`http://localhost:5000/orders/${id}`, {
+			fetch(`https://dreadful-asylum-85968.herokuapp.com/orders/${id}`, {
 				method: "DELETE",
 			})
 				.then((res) => res.json())

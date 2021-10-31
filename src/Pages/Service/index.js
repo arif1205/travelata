@@ -12,7 +12,7 @@ const Service = () => {
 	const { id } = useParams();
 
 	useEffect(() => {
-		fetch("http://localhost:5000/services")
+		fetch("https://dreadful-asylum-85968.herokuapp.com/services")
 			.then((res) => res.json())
 			.then((data) => setDetails(data.find((item) => item.id === id)));
 	}, []);
@@ -25,7 +25,7 @@ const Service = () => {
 		order.email = user.email;
 		order.status = false;
 
-		fetch("http://localhost:5000/orders", {
+		fetch("https://dreadful-asylum-85968.herokuapp.com/orders", {
 			method: "POST",
 			headers: {
 				"Content-type": "application/json",
