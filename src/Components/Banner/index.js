@@ -1,8 +1,8 @@
 import React from "react";
-// images
-import bg from "../../Images/banner.jpg";
 // styles
 import { Wrapper } from "./Banner.styles";
+// images
+import bg from "../../Images/banner.jpg";
 
 const Banner = ({ title, subTitle }) => {
 	return (

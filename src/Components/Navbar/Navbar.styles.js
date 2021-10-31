@@ -8,6 +8,28 @@ export const Wrapper = styled.nav`
 	width: 100%;
 	z-index: 999;
 
+	.nav-container {
+		position: relative;
+
+		.down-icon {
+			position: absolute;
+			right: 20px;
+			bottom: -30px;
+			color: var(--secondary-color);
+
+			span {
+				display: inline-block;
+				width: 40px;
+				height: 40px;
+				background: var(--primary-color);
+				text-align: center;
+				line-height: 40px;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+		}
+	}
+
 	svg {
 		fill: var(--secondary-color);
 		width: 200px;
@@ -86,6 +108,27 @@ export const Wrapper = styled.nav`
 					background: var(--primary-color);
 				}
 			}
+		}
+	}
+
+	@media screen and (max-width: 767px) {
+		.user-box {
+			order: 2;
+		}
+
+		.pages {
+			order: 3;
+			position: absolute;
+			background: var(--primary-color);
+			left: 0;
+			top: -400%;
+			width: 250px;
+			text-align: center;
+			transition: 0.3s;
+		}
+
+		.pages-md {
+			top: 130%;
 		}
 	}
 `;

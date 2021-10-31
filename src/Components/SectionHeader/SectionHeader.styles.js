@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.div`
 	text-align: center;
 	padding: 0 20px;
-	width: clamp(350px, 60%, 90%);
+	width: clamp(350px, 60%, 800px);
 	margin: auto;
 	padding-bottom: 80px;
 
@@ -24,5 +24,13 @@ export const Wrapper = styled.div`
 	p {
 		color: rgba(52, 78, 65, 0.75);
 		font-size: 16px;
+	}
+
+	@media screen and (max-width: 767px) {
+		width: clamp(350px, 100%, 800px);
+	}
+
+	@media screen and (max-width: 375px) {
+		width: clamp(250px, 100%, 800px);
 	}
 `;

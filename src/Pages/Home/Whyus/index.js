@@ -1,13 +1,13 @@
 import React from "react";
 // common header
 import SectionHeader from "../../../Components/SectionHeader";
+// styles
+import { Grid, Wrapper } from "./Whyus.styles";
 // images
 import { ReactComponent as Building } from "../../../Images/building.svg";
 import { ReactComponent as Globe } from "../../../Images/globe.svg";
 import { ReactComponent as Hammer } from "../../../Images/hammer.svg";
 import { ReactComponent as Watch } from "../../../Images/watch.svg";
-// styles
-import { Grid, Wrapper } from "./Whyus.styles";
 
 const Whyus = () => {
 	return (
@@ -18,6 +18,7 @@ const Whyus = () => {
 					title='We are best in our field.'
 					subTitle='You can rest assured we’ll have the capacity to make you feel comfortable as we leave the techy stuff and we focus on helping people.'
 				/>
+				{/* grid items  */}
 				<Grid>
 					<div className='item'>
 						<div className='icon'>

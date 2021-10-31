@@ -1,15 +1,16 @@
 import React from "react";
 // Routing
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Footer from "./Components/Footer";
+// Context
+import AuthProvider from "./Context/AuthProvider";
 // Components
 import NavBar from "./Components/Navbar";
-import AuthProvider from "./Context/AuthProvider";
-import About from "./Pages/About";
-import Contact from "./Pages/Contact";
+import Footer from "./Components/Footer";
 import PrivateRoute from "./Components/PrivateRoute";
 // pages
+import About from "./Pages/About";
 import Home from "./Pages/Home";
+import Contact from "./Pages/Contact";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import Services from "./Pages/Services";

@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router";
+// styles
 import { Wrapper } from "./Service.style";
+// component
 import SectionHeader from "../../Components/SectionHeader";
+// hooks
 import useScroll from "../../Hooks/useScroll";
 import useAuth from "../../Hooks/useAuth";
 
@@ -25,6 +28,7 @@ const Service = () => {
 		order.email = user.email;
 		order.status = false;
 
+		// Post to add in order
 		fetch("https://dreadful-asylum-85968.herokuapp.com/orders", {
 			method: "POST",
 			headers: {
@@ -46,7 +50,7 @@ const Service = () => {
 			<div className='container'>
 				<SectionHeader title={details?.place} subTitle={details?.details} />
 				<div className='orders row justify-content-between'>
-					<div className='col-md-4'>
+					<div className='col-md-4 mb-5 mb-md-0'>
 						<div className='order-review'>
 							<form onSubmit={handleSubmit}>
 								<label htmlFor='name'>Name: </label>

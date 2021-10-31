@@ -54,5 +54,13 @@ export const Wrapper = styled.div`
 			top: 50%;
 			transform: translateY(-50%);
 		}
+
+		@media screen and (max-width: 575px) {
+			width: clamp(250px, 95%, 95%);
+
+			h1 {
+				font-size: 30px;
+			}
+		}
 	}
 `;

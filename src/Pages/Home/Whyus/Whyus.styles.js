@@ -30,4 +30,14 @@ export const Grid = styled.div`
 			font-size: 16px;
 		}
 	}
+
+	@media screen and (max-width: 767px) {
+		grid-template-columns: repeat(2, 1fr);
+		row-gap: 40px;
+	}
+
+	@media screen and (max-width: 575px) {
+		grid-template-columns: repeat(1, 1fr);
+		row-gap: 40px;
+	}
 `;

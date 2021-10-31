@@ -72,4 +72,12 @@ export const Grid = styled.div`
 			display: block;
 		}
 	}
+
+	@media screen and (max-width: 767px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media screen and (max-width: 575px) {
+		grid-template-columns: repeat(1, 1fr);
+	}
 `;

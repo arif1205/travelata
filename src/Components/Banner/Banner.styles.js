@@ -18,11 +18,19 @@ export const Wrapper = styled.div`
 			color: var(--primary-color);
 			font-weight: 500;
 			margin-bottom: 16px;
+
+			@media screen and (max-width: 575px) {
+				font-size: 28px;
+			}
 		}
 
 		p {
 			font-size: 20px;
 			color: rgba(52, 78, 65, 0.75);
+
+			@media screen and (max-width: 575px) {
+				font-size: 19px;
+			}
 		}
 	}
 `;
