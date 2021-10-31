@@ -7,17 +7,23 @@ import SectionHeader from "../../Components/SectionHeader";
 // hooks
 import useScroll from "../../Hooks/useScroll";
 import useAuth from "../../Hooks/useAuth";
+import Loading from "../../Components/Loading";
 
 const Service = () => {
 	const [details, setDetails] = useState({});
+	const [loading, setLoading] = useState(false);
 	const { user } = useAuth();
 	const history = useHistory();
 	const { id } = useParams();
 
 	useEffect(() => {
+		setLoading(true);
 		fetch("https://dreadful-asylum-85968.herokuapp.com/services")
 			.then((res) => res.json())
-			.then((data) => setDetails(data.find((item) => item.id === id)));
+			.then((data) => {
+				setDetails(data.find((item) => item.id === id));
+				setLoading(false);
+			});
 	}, []);
 
 	const handleSubmit = (e) => {
@@ -48,7 +54,11 @@ const Service = () => {
 	return (
 		<Wrapper>
 			<div className='container'>
-				<SectionHeader title={details?.place} subTitle={details?.details} />
+				{loading ? (
+					<Loading />
+				) : (
+					<SectionHeader title={details?.place} subTitle={details?.details} />
+				)}
 				<div className='orders row justify-content-between'>
 					<div className='col-md-4 mb-5 mb-md-0'>
 						<div className='order-review'>

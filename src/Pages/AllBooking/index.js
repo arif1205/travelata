@@ -2,16 +2,20 @@ import React, { useState, useEffect } from "react";
 import { Wrapper } from "../MyBooking/MyBooking.styles";
 import SectionHeader from "../../Components/SectionHeader";
 import useAuth from "../../Hooks/useAuth";
+import Loading from "../../Components/Loading";
 
 const AllBooking = () => {
+	const [loading, setLoading] = useState(false);
 	const [allorders, setAllorders] = useState([]);
 
 	useEffect(() => {
+		setLoading(true);
 		fetch("https://dreadful-asylum-85968.herokuapp.com/orders")
 			.then((res) => res.json())
-			.then((data) =>
-				Array.isArray(data) ? setAllorders(data) : setAllorders([data])
-			);
+			.then((data) => {
+				Array.isArray(data) ? setAllorders(data) : setAllorders([data]);
+				setLoading(false);
+			});
 	}, []);
 
 	const handleDelete = (id) => {
@@ -71,33 +75,37 @@ const AllBooking = () => {
 						</tr>
 					</thead>
 					<tbody>
-						{allorders.map((order) => (
-							<tr key={order._id}>
-								<td className='font-weight-bold'>{order.product_id}</td>
-								<td>{order.name}</td>
-								<td>
-									{order.status ? (
-										<span className='text-success'>Approved</span>
-									) : (
-										<span className='text-info'>Pending</span>
-									)}
-								</td>
-								<td>
-									<button
-										className='btn btn-warning'
-										onClick={(e) => handleApprove(order._id)}>
-										Approve
-									</button>
-								</td>
-								<td>
-									<button
-										className='btn btn-danger'
-										onClick={(e) => handleDelete(order._id)}>
-										Delete
-									</button>
-								</td>
-							</tr>
-						))}
+						{loading ? (
+							<Loading />
+						) : (
+							allorders.map((order) => (
+								<tr key={order._id}>
+									<td className='font-weight-bold'>{order.product_id}</td>
+									<td>{order.name}</td>
+									<td>
+										{order.status ? (
+											<span className='text-success'>Approved</span>
+										) : (
+											<span className='text-info'>Pending</span>
+										)}
+									</td>
+									<td>
+										<button
+											className='btn btn-warning'
+											onClick={(e) => handleApprove(order._id)}>
+											Approve
+										</button>
+									</td>
+									<td>
+										<button
+											className='btn btn-danger'
+											onClick={(e) => handleDelete(order._id)}>
+											Delete
+										</button>
+									</td>
+								</tr>
+							))
+						)}
 					</tbody>
 				</table>
 			</div>
