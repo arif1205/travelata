@@ -17,6 +17,7 @@ import Service from "./Pages/Service";
 import MyBooking from "./Pages/MyBooking";
 import AllBooking from "./Pages/AllBooking";
 import AddNew from "./Pages/AddNew";
+import NotFound from "./Pages/NotFound";
 
 function App() {
 	return (
@@ -54,6 +55,9 @@ function App() {
 					<PrivateRoute exact path='/addnew'>
 						<AddNew />
 					</PrivateRoute>
+					<Route path='*'>
+						<NotFound />
+					</Route>
 				</Switch>
 				<Footer />
 			</Router>
