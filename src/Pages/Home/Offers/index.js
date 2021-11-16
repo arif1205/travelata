@@ -11,7 +11,7 @@ const Offers = () => {
 	useEffect(() => {
 		fetch("https://dreadful-asylum-85968.herokuapp.com/services")
 			.then((res) => res.json())
-			.then((data) => setOffer(data.slice(0, 6)));
+			.then((data) => setOffer(data.slice(data.length - 6, data.length)));
 	}, []);
 
 	return (

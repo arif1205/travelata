@@ -7,7 +7,7 @@ const AddNew = () => {
 	const placeRef = useRef();
 	const priceRef = useRef();
 	const maxPeopleRef = useRef();
-	const minPeopleRef = useRef();
+	const minAgeRef = useRef();
 	const detailsRef = useRef();
 	const durationRef = useRef();
 	const imgRef = useRef();
@@ -16,14 +16,30 @@ const AddNew = () => {
 	const handleSubmit = (e) => {
 		e.preventDefault();
 
+		const shuffledArray = (arr) => {
+			for (let i = arr.length - 1; i > 0; i--) {
+				let j = Math.floor(Math.random() * (i + 1));
+				let temp = arr[i];
+				arr[i] = arr[j];
+				arr[j] = temp;
+			}
+			return arr;
+		};
+
 		const newService = {
 			place: placeRef.current.value,
 			price: priceRef.current.value,
 			maxPeople: maxPeopleRef.current.value,
-			minPeople: minPeopleRef.current.value,
+			minAge: minAgeRef.current.value,
 			details: detailsRef.current.value,
 			duration: durationRef.current.value,
 			img: imgRef.current.value,
+			id: `${
+				shuffledArray(
+					detailsRef.current.value.slice(0, 18).split(" ").join("").split("")
+				).join("").length > 5 ||
+				shuffledArray("Loremipsumdolarsit").split("").join("")
+			}`,
 		};
 
 		fetch("https://dreadful-asylum-85968.herokuapp.com/services", {
@@ -95,7 +111,7 @@ const AddNew = () => {
 										id='min-age'
 										class='form-control'
 										type='text'
-										ref={minPeopleRef}
+										ref={minAgeRef}
 									/>
 								</div>
 								<div class='form-group mb-3'>
